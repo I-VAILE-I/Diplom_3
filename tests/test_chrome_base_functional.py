@@ -50,10 +50,11 @@ class TestBaseFunctionalPagesChrome:
         base_functional.wait_to_be_open_main_page()
         base_functional.drag_and_drop_bun()
         base_functional.click_create_order_button()
+        base_functional.wait_500_ms()
         assert base_functional.get_order_status() == ExpectedResults.order_status
 
     @allure.title('Проверяем, не залогиненный пользователь не может оформить заказ')
-    def test_make_order_for_not_authorized_user(self, driver_chrome):
+    def test_cant_make_order_for_not_authorized_user(self, driver_chrome):
         base_functional = BaseFunctionalPages(driver=driver_chrome)
         base_functional.drag_and_drop_bun()
         base_functional.click_create_order_button()

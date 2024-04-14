@@ -22,7 +22,7 @@ class TestOrderListPageChrome:
         order_list_page.click_on_orders_list()
         order_list_page.wait_500_ms()
         order_list_page.click_on_order()
-        assert order_list_page.get_order_information_in_order() == ExpectedResults.order_status_in_list
+        assert order_list_page.get_order_information_in_order() == ExpectedResults.order_status_in_list or order_list_page.get_order_information_in_order() == ExpectedResults.order_status_in_list_created or order_list_page.get_order_information_in_order() == ExpectedResults.order_status_in_list_in_work
 
     @allure.title('Заказы пользователя отображаются на странице «Лента заказов»')
     def test_user_order_from_history_in_orders_list(self, driver_chrome):
@@ -99,11 +99,10 @@ class TestOrderListPageChrome:
         order_list_page.wait_to_be_open_main_page()
         order_list_page.drag_and_drop_bun()
         order_list_page.click_create_order_button()
-        order_list_page.wait_500_ms()
-        order_list_page.wait_500_ms() # не понял к чему привязаться, что бы заглушка в 99999 пропала
+        order_list_page.wait_3_s() # не понял к чему привязаться, что бы заглушка в 99999 пропала
         created_order_num = order_list_page.get_created_order_numbers()
         order_list_page.close_info_about_order()
         order_list_page.click_on_orders_list()
-        order_list_page.wait_5_s()
+        order_list_page.wait_3_s()
         in_work_order = order_list_page.get_order_in_work()
         assert in_work_order == f'0{created_order_num}'

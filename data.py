@@ -23,3 +23,4 @@ class ExpectedResults:
     order_status = 'Ваш заказ начали готовить'
     order_status_in_list = 'Выполнен'
     order_status_in_list_in_work = 'В обработке'
+    order_status_in_list_created = 'Создан'

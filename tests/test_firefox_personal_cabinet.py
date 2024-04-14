@@ -44,6 +44,7 @@ class TestPersonalCabinetPageFirefox:
         authorization.wait_500_ms()
         authorization.click_on_text_personal_cabinet()
         authorization.wait_to_be_open_profile_page()
+        authorization.wait_500_ms()
         authorization.click_on_orders_history()
         assert authorization.get_current_urls() == Urls.orders_history
 
@@ -59,6 +60,7 @@ class TestPersonalCabinetPageFirefox:
         authorization.wait_500_ms()
         authorization.click_on_text_personal_cabinet()
         authorization.wait_to_be_open_profile_page()
+        authorization.wait_500_ms()
         authorization.click_logout_button()
         authorization.wait_to_be_open_login_page()
         assert authorization.get_current_urls() == Urls.login_url
