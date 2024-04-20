@@ -13,4 +13,4 @@ class MainPageLocators:
     main_page_loader = [By.XPATH, "//div[@class='Modal_modal__P3_V5']"]
     order_created = [By.XPATH, "//p[@class='undefined text text_type_main-small mb-2']"]
     constructor = [By.CSS_SELECTOR, ".BurgerConstructor_basket__29Cd7"]
-
+    loading_screen = [By.XPATH, "//div[@class='Modal_modal_overlay__x2ZCr']"]

@@ -8,3 +8,4 @@ class OrdersListLocators:
     created_orders_for_today = [By.XPATH, "//div[contains(@class, 'OrderFeed_ordersData__1L6Iv')]/div[last()]"]
     in_work = [By.XPATH, "//ul[@class='OrderFeed_orderListReady__1YFem OrderFeed_orderList__cBvyi']"]
     created_order_number = [By.XPATH, "//h2[@class='Modal_modal__title_shadow__3ikwq Modal_modal__title__2L34m text text_type_digits-large mb-8']"]
+    order_animation = [By.XPATH, "//div[@class='undefined mb-15']"]

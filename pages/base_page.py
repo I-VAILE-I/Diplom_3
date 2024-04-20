@@ -1,11 +1,8 @@
-import allure
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.action_chains import ActionChains
 from seletools.actions import drag_and_drop
 
 
-@allure.suite('Проверка разделов "Вопросы о важном" на главной странице в Firefox')
 class BasePage:
 
     def __int__(self, driver):
@@ -30,7 +27,13 @@ class BasePage:
         WebDriverWait(self.driver, 10).until(EC.url_to_be(title))
 
     def wait_to_click_on_element(self, locator):
-        WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(locator))
+        WebDriverWait(self.driver, 20).until(EC.presence_of_element_located(locator))
+
+    def wait_to_visible_on_element(self, locator):
+        WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(locator))
+
+    def wait_to_invisibil_on_element(self, locator):
+        WebDriverWait(self.driver, 30).until(EC.invisibility_of_element(locator))
 
     def wait_to_element_invisible(self, locator):
         WebDriverWait(self.driver, 20).until(EC.invisibility_of_element_located(locator))
