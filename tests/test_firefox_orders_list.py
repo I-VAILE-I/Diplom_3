@@ -20,7 +20,7 @@ class TestOrderListPageChrome:
         main_page.click_on_text_personal_cabinet()
         personal_cabinet.wait_to_be_open_login_page()
         personal_cabinet.add_email()
-        personal_cabinet.add_new_password()
+        personal_cabinet.add_password()
         personal_cabinet.click_login_button()
         main_page.wait_to_be_open_main_page()
         main_page.drag_and_drop_bun()
@@ -35,7 +35,7 @@ class TestOrderListPageChrome:
         main_page.click_on_orders_list()
         order_list_page.wait_500_ms()
         order_list_page.click_on_order()
-        assert order_list_page.get_order_information_in_order() == ExpectedResults.order_status_in_list_in_work
+        assert order_list_page.get_order_information_in_order() == ExpectedResults.order_status_in_list
 
     @allure.title('Заказы пользователя отображаются на странице «Лента заказов»')
     def test_user_order_from_history_in_orders_list(self, driver_firefox):
@@ -49,7 +49,7 @@ class TestOrderListPageChrome:
         main_page.click_on_text_personal_cabinet()
         login_page.wait_to_be_open_login_page()
         login_page.add_email()
-        login_page.add_new_password()
+        login_page.add_password()
         login_page.click_login_button()
         main_page.wait_to_be_open_main_page()
         main_page.wait_to_be_invisible_loading_screen()
@@ -74,7 +74,7 @@ class TestOrderListPageChrome:
         main_page.click_on_text_personal_cabinet()
         login_page.wait_to_be_open_login_page()
         login_page.add_email()
-        login_page.add_new_password()
+        login_page.add_password()
         login_page.click_login_button()
         main_page.wait_to_be_open_main_page()
         main_page.wait_to_be_invisible_loading_screen()
@@ -103,7 +103,7 @@ class TestOrderListPageChrome:
         main_page.click_on_text_personal_cabinet()
         login_page.wait_to_be_open_login_page()
         login_page.add_email()
-        login_page.add_new_password()
+        login_page.add_password()
         login_page.click_login_button()
         main_page.wait_to_be_open_main_page()
         main_page.wait_to_be_invisible_loading_screen()
@@ -132,7 +132,7 @@ class TestOrderListPageChrome:
         main_page.click_on_text_personal_cabinet()
         login_page.wait_to_be_open_login_page()
         login_page.add_email()
-        login_page.add_new_password()
+        login_page.add_password()
         login_page.click_login_button()
         main_page.wait_to_be_open_main_page()
         main_page.drag_and_drop_bun()

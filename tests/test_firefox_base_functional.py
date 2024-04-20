@@ -19,7 +19,7 @@ class TestBaseFunctionalPagesFirefox:
         login_base_functional = LoginAndRegistrationPage(driver=driver_firefox)
         login_base_functional.wait_to_be_open_login_page()
         login_base_functional.add_email()
-        login_base_functional.add_new_password()
+        login_base_functional.add_password()
         login_base_functional.click_login_button()
         main_page_base.wait_to_be_invisible_loading_screen()
         main_page_base.wait_to_click_personal_cabinet()
@@ -56,6 +56,7 @@ class TestBaseFunctionalPagesFirefox:
     @allure.title('Перетаскиваем булочку в конструктор')
     def test_drag_and_drop_bun_to_constructor(self, driver_firefox):
         main_page_base = MainPage(driver=driver_firefox)
+        main_page_base.wait_to_be_invisible_loading_screen()
         main_page_base.drag_and_drop_bun()
         assert main_page_base.get_bun_counter() == ExpectedResults.bun_count
 
@@ -69,7 +70,7 @@ class TestBaseFunctionalPagesFirefox:
         login_base_functional = LoginAndRegistrationPage(driver=driver_firefox)
         login_base_functional.wait_to_be_open_login_page()
         login_base_functional.add_email()
-        login_base_functional.add_new_password()
+        login_base_functional.add_password()
         login_base_functional.click_login_button()
         main_page_base.wait_to_be_open_main_page()
         main_page_base.wait_to_click_personal_cabinet()

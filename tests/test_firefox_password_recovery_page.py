@@ -13,6 +13,7 @@ class TestForgotPasswordPagesFirefox:
         login_page = LoginAndRegistrationPage(driver=driver_firefox)
         main_page = MainPage(driver=driver_firefox)
         main_page.wait_to_be_invisible_loading_screen()
+        main_page.wait_500_ms()
         main_page.click_on_text_personal_cabinet()
         login_page.click_on_recovery_password_text()
         assert login_page.get_current_urls() == Urls.forgot_password_url
@@ -33,6 +34,7 @@ class TestForgotPasswordPagesFirefox:
         login_page = LoginAndRegistrationPage(driver=driver_firefox)
         main_page = MainPage(driver=driver_firefox)
         main_page.wait_to_be_invisible_loading_screen()
+        main_page.wait_500_ms()
         main_page.click_on_login_button()
         login_page.click_on_recovery_password_text()
         login_page.add_email()
@@ -46,6 +48,7 @@ class TestForgotPasswordPagesFirefox:
         main_page = MainPage(driver=driver_firefox)
         main_page.wait_to_be_invisible_loading_screen()
         main_page.wait_to_click_personal_cabinet()
+        main_page.wait_500_ms()
         main_page.click_on_login_button()
         login_page.click_on_recovery_password_text()
         login_page.add_email()
