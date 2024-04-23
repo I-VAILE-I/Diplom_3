@@ -9,3 +9,5 @@ class OrdersListLocators:
     in_work = [By.XPATH, "//ul[@class='OrderFeed_orderListReady__1YFem OrderFeed_orderList__cBvyi']"]
     created_order_number = [By.XPATH, "//h2[@class='Modal_modal__title_shadow__3ikwq Modal_modal__title__2L34m text text_type_digits-large mb-8']"]
     order_animation = [By.XPATH, "//div[@class='undefined mb-15']"]
+    order_window = [By.XPATH, "//div[@class='Modal_modal__container__Wo2l_']"]
+    order_number = [By.XPATH, "//h2[@class='Modal_modal__title_shadow__3ikwq Modal_modal__title__2L34m text text_type_digits-large mb-8']"]

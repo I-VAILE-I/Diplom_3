@@ -9,8 +9,7 @@ from pages.base_page import BasePage
 class LoginAndRegistrationPage(BasePage):
 
     def __init__(self, driver):
-        BasePage.__init__(driver)
-        self.driver = driver
+        super().__init__(driver)
 
     @allure.step('Вводим Email')
     def add_email(self):
@@ -55,18 +54,3 @@ class LoginAndRegistrationPage(BasePage):
     @allure.step('Получаем статус активности поля пароля')
     def get_password_field_status(self):
         return self.get_password_field_activity(locator=LoginAndRegistrationPageLocators.input_new_password)
-
-    @allure.step('Ждем когда главная страница станет кликабельна')
-    def wait_500_ms(self):
-        """
-        Поясню почем time.sleep: неявное ожидание у меня отказывается работать
-        А явное ожидание, не понял к какому элементу можно привязаться
-        т.к. во время загрузки страницы они становятся активными и видимыми а
-        селениум при нажатии на них падает, нашел выход только в этом.
-        Причем такая проблема только с Firefox
-        """
-        time.sleep(0.5)
-
-    @allure.step('Ждем открытия главной страницы')
-    def wait_to_be_invisible_loading_screen(self):
-        self.wait_to_invisibil_on_element(MainPageLocators.loading_screen)

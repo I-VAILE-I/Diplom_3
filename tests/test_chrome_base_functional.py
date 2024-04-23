@@ -18,7 +18,7 @@ class TestBaseFunctionalPagesChrome:
         login_base_functional.add_email()
         login_base_functional.add_password()
         login_base_functional.click_login_button()
-        main_page_base.wait_to_be_invisible_loading_screen()
+        main_page_base.wait_to_click_personal_cabinet()
         main_page_base.click_on_text_personal_cabinet()
         personal_cabinet_page = PersonalCabinetPage(driver=driver_chrome)
         personal_cabinet_page.wait_to_be_open_profile_page()

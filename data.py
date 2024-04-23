@@ -24,3 +24,5 @@ class ExpectedResults:
     order_status_in_list = 'Выполнен'
     order_status_in_list_in_work = 'В обработке'
     order_status_in_list_created = 'Создан'
+
+default_order_value = '9999'

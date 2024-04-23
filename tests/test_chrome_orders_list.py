@@ -1,5 +1,5 @@
 import allure
-from data import Urls, ExpectedResults
+from data import ExpectedResults
 from pages.login_and_registration_page import LoginAndRegistrationPage
 from pages.main_page import MainPage
 from pages.orders_list_page import OrderListPage
@@ -22,10 +22,11 @@ class TestOrderListPageChrome:
         main_page.wait_to_be_open_main_page()
         main_page.drag_and_drop_bun()
         main_page.click_create_order_button()
-        order_list_page.wait_500_ms()
+        order_list_page.wait_to_be_open_created_order()
+        main_page.wait_to_click_close_cross()
         main_page.click_on_close_cross()
         main_page.click_on_orders_list()
-        order_list_page.wait_500_ms()
+        main_page.wait_to_be_invisible_second_loading_screen()
         order_list_page.click_on_order()
         assert order_list_page.get_order_information_in_order() == ExpectedResults.order_status_in_list
 
@@ -62,16 +63,17 @@ class TestOrderListPageChrome:
         login_page.click_login_button()
         main_page.wait_to_be_open_main_page()
         main_page.click_on_orders_list()
-        order_list_page.wait_500_ms()
+        order_list_page.wait_to_click_on_order()
         created_orders_all_time = order_list_page.get_created_orders_for_all_time().split('\n')[1]
         main_page.click_on_constructor()
         main_page.wait_to_be_open_main_page()
         main_page.drag_and_drop_bun()
         main_page.click_create_order_button()
-        order_list_page.wait_500_ms()
+        order_list_page.wait_to_be_open_created_order()
+        main_page.wait_to_click_close_cross()
         main_page.click_on_close_cross()
         main_page.click_on_orders_list()
-        order_list_page.wait_500_ms()
+        order_list_page.wait_to_click_on_order()
         changed_orders_all_time = order_list_page.get_created_orders_for_all_time().split('\n')[1]
         assert int(changed_orders_all_time) > int(created_orders_all_time)
 
@@ -87,16 +89,16 @@ class TestOrderListPageChrome:
         login_page.click_login_button()
         main_page.wait_to_be_open_main_page()
         main_page.click_on_orders_list()
-        order_list_page.wait_500_ms()
+        order_list_page.wait_to_click_on_order()
         created_orders_all_time = order_list_page.get_created_orders_for_today().split('\n')[1]
         main_page.click_on_constructor()
         main_page.wait_to_be_open_main_page()
         main_page.drag_and_drop_bun()
         main_page.click_create_order_button()
-        order_list_page.wait_500_ms()
+        order_list_page.wait_to_be_open_created_order()
         main_page.click_on_close_cross()
         main_page.click_on_orders_list()
-        order_list_page.wait_500_ms()
+        order_list_page.wait_to_click_on_order()
         changed_orders_all_time = order_list_page.get_created_orders_for_today().split('\n')[1]
         assert int(changed_orders_all_time) > int(created_orders_all_time)
 
@@ -113,10 +115,11 @@ class TestOrderListPageChrome:
         main_page.wait_to_be_open_main_page()
         main_page.drag_and_drop_bun()
         main_page.click_create_order_button()
-        order_list_page.wait_3_s() # не понял к чему привязаться, что бы заглушка в 99999 пропала
-        created_order_num = order_list_page.get_created_order_numbers()
+        order_list_page.wait_to_be_open_created_order()
+        created_order_num = order_list_page.wait_to_get_actual_order_number()
+        main_page.wait_to_click_close_cross()
         main_page.click_on_close_cross()
         main_page.click_on_orders_list()
-        order_list_page.wait_3_s()
-        in_work_order = order_list_page.get_order_in_work()
+        order_list_page.wait_to_click_on_order()
+        in_work_order = order_list_page.get_order_in_work(expected_value=created_order_num)
         assert in_work_order == f'0{created_order_num}'

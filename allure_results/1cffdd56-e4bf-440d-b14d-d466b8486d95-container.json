@@ -1,1 +1,0 @@
-{"uuid": "b4c5ff80-c0c2-451b-ae93-9bc8a65de917", "children": ["b46f32ec-f388-48a7-8564-2fb50c2397f1"], "befores": [{"name": "driver_firefox", "status": "passed", "start": 1713642457958, "stop": 1713642465669}], "afters": [{"name": "driver_firefox::0", "status": "passed", "start": 1713642467519, "stop": 1713642470165}], "start": 1713642457958, "stop": 1713642470165}
